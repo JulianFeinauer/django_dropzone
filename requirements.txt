@@ -1,0 +1,7 @@
+# Only needed for development
+black==22.3.0
+flake8==4.0.1
+pre-commit==2.9.3
+pytest
+pytest-django
+pytest-cov

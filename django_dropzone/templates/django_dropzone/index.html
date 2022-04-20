@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Dropzone Demo</title>
+    <script src="https://unpkg.com/dropzone@5/dist/dropzone.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css"/>
+</head>
+<body>
+<script>
+    Dropzone.options.myDropzone = {
+        url: "/uploads",
+        success: function (file, response) {
+            console.log("A file has been uploaded successfully", response);
+            let link = document.createElement("a")
+            link.setAttribute("href", response.url)
+            link.innerText = response.filename
+            let li = document.createElement("li")
+            li.appendChild(link)
+            document.getElementById("filelist").appendChild(li)
+            // Remove file after Upload
+            document.getElementById('my-dropzone').dropzone.removeFile(file)
+        }
+    }
+</script>
+<div>
+    <div>Existing Files:</div>
+    <ul id="filelist">
+
+    </ul>
+</div>
+<div id="my-dropzone" class="dropzone"></div>
+</body>
+</html>
